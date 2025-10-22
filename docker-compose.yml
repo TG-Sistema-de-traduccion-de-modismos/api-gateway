@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  duckdns:
+    image: linuxserver/duckdns
+    container_name: duckdns
+    environment:
+      - SUBDOMAINS=${DUCKDNS_DOMAIN}
+      - TOKEN=${DUCKDNS_TOKEN}
+      - LOG_FILE=false
+    restart: unless-stopped
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt
+      - ./letsencrypt-logs:/var/log/letsencrypt
+    command: >
+      certonly --standalone
+      --non-interactive
+      --agree-tos
+      --email ${LETSENCRYPT_EMAIL}
+      -d modistra-api.duckdns.org
+
+  kong:
+    image: kong:3.7
+    container_name: kong
+    depends_on:
+      - duckdns
+      - certbot
+    ports:
+      - "80:8000"
+      - "443:8443"
+      - "8001:8001"
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/usr/local/kong/declarative/kong.yml
+      - KONG_PROXY_LISTEN=0.0.0.0:8443 ssl
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001
+      - KONG_SSL_CERT=/etc/letsencrypt/live/modistra-api.duckdns.org/fullchain.pem
+      - KONG_SSL_CERT_KEY=/etc/letsencrypt/live/modistra-api.duckdns.org/privkey.pem
+    volumes:
+      - ./kong/kong.yml:/usr/local/kong/declarative/kong.yml
+      - ./letsencrypt:/etc/letsencrypt
+    restart: always
+

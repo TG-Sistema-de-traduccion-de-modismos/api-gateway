@@ -1,0 +1,18 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: analyze-text-service
+    url: http://35.208.13.148:8001/analyze-text
+    routes:
+      - name: analyze-text-route
+        paths:
+          - /text
+
+  - name: analyze-audio-service
+    url: http://35.208.13.148:8001/analyze-audio
+    routes:
+      - name: analyze-audio-route
+        paths:
+          - /audio
+
