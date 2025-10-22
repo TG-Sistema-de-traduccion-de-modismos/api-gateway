@@ -1,0 +1,56 @@
+2025-10-19 00:59:22,602:DEBUG:certbot._internal.main:certbot version: 5.1.0
+2025-10-19 00:59:22,603:DEBUG:certbot._internal.main:Location of certbot entry point: /usr/local/bin/certbot
+2025-10-19 00:59:22,603:DEBUG:certbot._internal.main:Arguments: ['--standalone', '--non-interactive', '--agree-tos', '--email', 'tesismodistra@gmail.com', '-d', 'modistra-api.duckdns.org']
+2025-10-19 00:59:22,604:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2025-10-19 00:59:22,645:DEBUG:certbot._internal.log:Root logging level set at 30
+2025-10-19 00:59:22,648:DEBUG:certbot._internal.plugins.selection:Requested authenticator standalone and installer None
+2025-10-19 00:59:22,649:DEBUG:certbot._internal.plugins.selection:Single candidate plugin: * standalone
+Description: Runs an HTTP server locally which serves the necessary validation files under the /.well-known/acme-challenge/ request path. Suitable if there is no HTTP server already running. HTTP challenge only (wildcards not supported).
+Interfaces: Authenticator, Plugin
+Entry point: EntryPoint(name='standalone', value='certbot._internal.plugins.standalone:Authenticator', group='certbot.plugins')
+Initialized: <certbot._internal.plugins.standalone.Authenticator object at 0x752a3840bec0>
+Prep: True
+2025-10-19 00:59:22,650:DEBUG:certbot._internal.plugins.selection:Selected authenticator <certbot._internal.plugins.standalone.Authenticator object at 0x752a3840bec0> and installer None
+2025-10-19 00:59:22,650:INFO:certbot._internal.plugins.selection:Plugins selected: Authenticator standalone, Installer None
+2025-10-19 00:59:22,780:DEBUG:certbot._internal.main:Picked account: <Account(RegistrationResource(body=Registration(key=None, contact=(), agreement=None, status=None, terms_of_service_agreed=None, only_return_existing=None, external_account_binding=None), uri='https://acme-v02.api.letsencrypt.org/acme/acct/2735207781', new_authzr_uri=None, terms_of_service=None), b4d1e825abf39785b4b97267ffd56a89, Meta(creation_dt=datetime.datetime(2025, 10, 18, 23, 30, 26, tzinfo=datetime.timezone.utc), creation_host='455fa1bd1ccd', register_to_eff=None))>
+2025-10-19 00:59:22,783:DEBUG:acme.client:Sending GET request to https://acme-v02.api.letsencrypt.org/directory.
+2025-10-19 00:59:22,788:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org:443
+2025-10-19 00:59:23,000:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "GET /directory HTTP/1.1" 200 1065
+2025-10-19 00:59:23,001:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Sun, 19 Oct 2025 00:59:22 GMT
+Content-Type: application/json
+Content-Length: 1065
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "jBopAxLGg7U": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417",
+  "keyChange": "https://acme-v02.api.letsencrypt.org/acme/key-change",
+  "meta": {
+    "caaIdentities": [
+      "letsencrypt.org"
+    ],
+    "profiles": {
+      "classic": "https://letsencrypt.org/docs/profiles#classic",
+      "shortlived": "https://letsencrypt.org/docs/profiles#shortlived (not yet generally available)",
+      "tlsclient": "https://letsencrypt.org/docs/profiles#tlsclient",
+      "tlsserver": "https://letsencrypt.org/docs/profiles#tlsserver"
+    },
+    "termsOfService": "https://letsencrypt.org/documents/LE-SA-v1.5-February-24-2025.pdf",
+    "website": "https://letsencrypt.org"
+  },
+  "newAccount": "https://acme-v02.api.letsencrypt.org/acme/new-acct",
+  "newNonce": "https://acme-v02.api.letsencrypt.org/acme/new-nonce",
+  "newOrder": "https://acme-v02.api.letsencrypt.org/acme/new-order",
+  "renewalInfo": "https://acme-v02.api.letsencrypt.org/acme/renewal-info",
+  "revokeCert": "https://acme-v02.api.letsencrypt.org/acme/revoke-cert"
+}
+2025-10-19 00:59:23,014:DEBUG:certbot._internal.renewal:Skipped ACME Renewal Info check because ari_retry_after 2025-10-19T05:39:19 is in the future
+2025-10-19 00:59:23,015:INFO:certbot.ocsp:Cannot extract OCSP URI from /etc/letsencrypt/archive/modistra-api.duckdns.org/cert1.pem
+2025-10-19 00:59:23,015:DEBUG:certbot._internal.display.obj:Notifying user: Certificate not yet due for renewal
+2025-10-19 00:59:23,016:INFO:certbot._internal.main:Keeping the existing certificate
+2025-10-19 00:59:23,016:DEBUG:certbot._internal.display.obj:Notifying user: Certificate not yet due for renewal; no action taken.
