@@ -14,7 +14,7 @@ Ambos endpoints redirigen las solicitudes a sistemas internos desplegados en má
 
 - Docker
 - Docker Compose
-- Acceso de red a las máquinas virtuales de Google Cloud
+- Acceso de red a las máquinas virtuales de Google Cloud o al proveedor preferido
 
 ## 🔧 Configuración
 
