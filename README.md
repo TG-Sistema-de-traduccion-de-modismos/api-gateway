@@ -20,10 +20,10 @@ Ambos endpoints redirigen las solicitudes a sistemas internos desplegados en má
 
 ### Ajustar direcciones IP
 
-**IMPORTANTE:** Antes de ejecutar el proyecto, debes ajustar las direcciones IP en el archivo de configuración según tu infraestructura:
+**IMPORTANTE:** Antes de ejecutar el proyecto, se deben ajustar las direcciones IP en el archivo de configuración según la infraestructura:
 
-1. Abre el archivo de configuración de servicios de Kong
-2. Modifica las URLs de los servicios `text` y `audio` con las IPs de tus máquinas virtuales:
+1. Abrir el archivo de configuración de servicios de Kong
+2. Modificar las URLs de los servicios `text` y `audio` con las IPs de tus máquinas virtuales:
 
 ```yaml
 # Ejemplo de configuración
