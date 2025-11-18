@@ -153,8 +153,3 @@ docker compose exec kong curl http://IP_DE_TU_VM:PUERTO
 
 - [Documentación oficial de Kong](https://docs.konghq.com/)
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
-
-
-## 👥 Contribución
-
-[Instrucciones de contribución si aplica]
