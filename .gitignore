@@ -1,3 +1,4 @@
 .env
 .pem
 private_key.json
+secrets/firebase-service-account.json
